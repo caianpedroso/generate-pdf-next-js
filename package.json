@@ -9,13 +9,16 @@
     "lint": "node_modules/.bin/next lint"
   },
   "dependencies": {
+    "@next/font": "^14.2.2",
+    "antd": "^5.16.2",
     "html-to-image": "^1.11.11",
     "html2pdf.js": "^0.10.1",
     "next": "14.2.1",
     "nextjs-pdf": "^0.2.0",
     "puppeteer": "^22.6.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "styled-components": "^6.1.8"
   },
   "devDependencies": {
     "@types/node": "^20",
