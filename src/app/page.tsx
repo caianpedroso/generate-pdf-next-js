@@ -131,6 +131,7 @@ import { Inter } from "@next/font/google";
 import { Button, Table, Typography, Layout } from "antd";
 const inter = Inter({ subsets: ["latin"] });
 import { Wrapper } from "./app.style";
+import ImageTest from "./image.png";
 import { render } from "react-dom";
 
 export default function Home() {
@@ -171,10 +172,20 @@ export default function Home() {
         },
     ];
 
+    const imageStyle = {
+        borderRadius: '50%',
+        border: '1px solid #fff',
+    }
+
     const content = () => {
         return (
             <Layout style={{ backgroundColor: 'red' }}>
-                <Typography.Title level={4} className={"title"} style={{ color: 'red' }}>
+                <Image
+                    src={ImageTest}
+                    style={imageStyle}
+                    alt="Picture of the author"
+                />
+                <Typography.Title level={4} className={"title"} style={{ color: 'blue' }}>
                     User list
                 </Typography.Title>
                 <Typography.Title level={4} className={"title"}>
