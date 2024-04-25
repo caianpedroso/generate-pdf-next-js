@@ -8,9 +8,11 @@ const inter = Inter({ subsets: ["latin"] });
 import { Wrapper } from "./app.style";
 import ImageTest from "./image.png";
 import { render } from "react-dom";
+import { dataJson } from "./dataJson";
 
 export default function Home() {
-    const dataSource = Array.from({ length: 10 }, (_, i) => ({
+
+    const dataSource = Array.from({ length: 100 }, (_, i) => ({
         key: i,
         name: `user-${i}`,
         age: 32 + i,
@@ -19,55 +21,88 @@ export default function Home() {
         phone: "123456789",
     }));
 
+    const data = dataJson.data[0].parcels.map(item => {
+        return({
+            key: item.number,
+            portion: item.number,
+            amortization: item.amortization,
+            fee: item.fee,
+            mip: item.mip,
+            dfi: item.dfi,
+            tac: item.tac,
+            parcel: item.parcel,
+            remaining_balance: item.remaining_balance,
+        })
+    })
+
     const columns = [
         {
-            title: "Name",
-            dataIndex: "name",
-            key: "name",
+            title: "Parcela",
+            dataIndex: "portion",
+            key: "portion",
         },
         {
-            title: "Age",
-            dataIndex: "age",
-            key: "age",
+            title: "Amortização",
+            dataIndex: "amortization",
+            key: "amortization",
         },
         {
-            title: "Address",
-            dataIndex: "address",
-            key: "address",
+            title: "Juros",
+            dataIndex: "fee",
+            key: "fee",
         },
         {
-            title: "Email",
-            dataIndex: "email",
-            key: "email",
+            title: "Seguro MIP",
+            dataIndex: "mip",
+            key: "mip",
         },
         {
-            title: "Phone",
-            dataIndex: "phone",
-            key: "pnone",
+            title: "Seguro DFI",
+            dataIndex: "dfi",
+            key: "dfi",
+        },
+        {
+            title: "Tarifas",
+            dataIndex: "tac",
+            key: "tac",
+        },
+        {
+            title: "Parcela",
+            dataIndex: "parcel",
+            key: "parcel",
+        },
+        {
+            title: "Saldo Devedor",
+            dataIndex: "remaining_balance",
+            key: "remaining_balance",
         },
     ];
 
     const imageStyle = {
-        borderRadius: '50%',
-        border: '1px solid #fff',
+        borderRadius: '10px',
     }
 
     const content = () => {
+        // @ts-ignore
         return (
-            <Layout style={{ backgroundColor: 'red' }}>
+            <Layout style={{ backgroundColor: '#fff', padding: '0 20px' }}>
+                {/*<Image*/}
+                {/*    src={ImageTest}*/}
+                {/*    style={imageStyle}*/}
+                {/*    alt="Picture of the author"*/}
+                {/*/>*/}
                 <Image
-                    src={ImageTest}
+                    src={dataJson.data[0].bank_image}
                     style={imageStyle}
+                    width={75}
+                    height={75}
                     alt="Picture of the author"
                 />
-                <Typography.Title level={4} className={"title"} style={{ color: 'blue' }}>
-                    User list
-                </Typography.Title>
-                <Typography.Title level={4} className={"title"}>
-                    User list
+                <Typography.Title level={5} className={"title"} style={{ color: '#000' }}>
+                    {dataJson.data[0].bank_name}
                 </Typography.Title>
                 <Table
-                    dataSource={dataSource}
+                    dataSource={data}
                     columns={columns}
                     bordered
                     pagination={false}
@@ -92,12 +127,12 @@ export default function Home() {
             </Head>
             <Wrapper>
                 {/* render UI */}
-                {content()}
                 <div className={"btn__container"}>
                     <Button type="primary" onClick={() => handlePrint()}>
                         Print
                     </Button>
                 </div>
+                {content()}
             </Wrapper>
         </>
     );
