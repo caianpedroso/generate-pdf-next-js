@@ -6,7 +6,7 @@ export const Wrapper = styled.main`
   }
   padding: 0 3rem;
   .title {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     color: #c1c1c1;
   }
   .btn__container {

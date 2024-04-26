@@ -71,12 +71,13 @@ export default function Home() {
 
     const imageStyle = {
         borderRadius: '10px',
+        border: '1px solid #000',
     }
 
     const content = () => {
         // @ts-ignore
         return (
-            <Layout style={{ backgroundColor: '#fff', padding: '0 20px' }}>
+            <Layout style={{ backgroundColor: '#fff', padding: '0 20px 10px 20px' }}>
                 {/*<Image*/}
                 {/*    src={ImageTest}*/}
                 {/*    style={imageStyle}*/}
