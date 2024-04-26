@@ -12,15 +12,6 @@ import { dataJson } from "./dataJson";
 
 export default function Home() {
 
-    const dataSource = Array.from({ length: 100 }, (_, i) => ({
-        key: i,
-        name: `user-${i}`,
-        age: 32 + i,
-        address: `${i}-Downing Street`,
-        email: `user${i}@gmail.com`,
-        phone: "123456789",
-    }));
-
     const data = dataJson.data[0].parcels.map(item => {
         return({
             key: item.number,
