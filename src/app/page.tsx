@@ -90,7 +90,7 @@ export default function Home() {
                     height={75}
                     alt="Picture of the author"
                 />
-                <Typography.Title level={5} className={"title"} style={{ color: '#000' }}>
+                <Typography.Title level={5} style={{ color: '#000' }}>
                     {dataJson.data[0].bank_name}
                 </Typography.Title>
                 <Table
