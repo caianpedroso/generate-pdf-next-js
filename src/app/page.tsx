@@ -3,10 +3,10 @@ import Head from "next/head";
 import Image from "next/image";
 import ReactDOMServer from "react-dom/server";
 import { Inter } from "@next/font/google";
-import { Button, Table, Typography, Layout } from "antd";
+import { Button, Table, Typography, Layout, Col, Row } from "antd";
 const inter = Inter({ subsets: ["latin"] });
 import { Wrapper } from "./app.style";
-import ImageTest from "./image.png";
+import Logo from "./logo.png";
 import { render } from "react-dom";
 import { dataJson } from "./dataJson";
 
@@ -70,19 +70,27 @@ export default function Home() {
     ];
 
     const imageStyle = {
-        borderRadius: '10px',
-        border: '1px solid #000',
+        width: '120px',
+        height: '120px',
     }
 
     const content = () => {
         // @ts-ignore
         return (
             <Layout style={{ backgroundColor: '#fff', padding: '0 20px 10px 20px' }}>
-                {/*<Image*/}
-                {/*    src={ImageTest}*/}
-                {/*    style={imageStyle}*/}
-                {/*    alt="Picture of the author"*/}
-                {/*/>*/}
+                <Layout style={{ backgroundColor: '#fff', height: '100%', display: 'flex', alignItems: 'center' }}>
+                    <Image
+                        src={Logo}
+                        style={imageStyle}
+                        alt="Picture of the author"
+                    />
+                </Layout>
+                <Row>
+                    <Col span={6}>col-6</Col>
+                    <Col span={6}>col-6</Col>
+                    <Col span={6}>col-6</Col>
+                    <Col span={6}>col-6</Col>
+                </Row>
                 <Image
                     src={dataJson.data[0].bank_image}
                     style={imageStyle}
