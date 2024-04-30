@@ -10,19 +10,33 @@ import Logo from "./logo.png";
 import { render } from "react-dom";
 import { dataJson } from "./dataJson";
 
+// @ts-ignore
+export const moneyMask = (value: string) => {
+    value = value.replace('.', '').replace(',', '').replace(/\D/g, '')
+
+    const options = { minimumFractionDigits: 2 }
+    const result = new Intl.NumberFormat('pt-BR', options).format(
+        parseFloat(value) / 100
+    )
+
+    // console.log(result)
+
+    return 'R$ ' + result
+}
+
 export default function Home() {
 
     const data = dataJson.data[0].parcels.map(item => {
         return({
             key: item.number,
             portion: item.number,
-            amortization: item.amortization,
-            fee: item.fee,
-            mip: item.mip,
-            dfi: item.dfi,
-            tac: item.tac,
-            parcel: item.parcel,
-            remaining_balance: item.remaining_balance,
+            amortization: moneyMask(item.amortization.toString()),
+            fee: moneyMask(item.fee.toString()),
+            mip: moneyMask(item.mip.toString()),
+            dfi: moneyMask(item.dfi.toString()),
+            tac: moneyMask(item.tac.toString()),
+            parcel: moneyMask(item.parcel.toString()),
+            remaining_balance: moneyMask(item.remaining_balance.toString()),
         })
     })
 
@@ -31,6 +45,7 @@ export default function Home() {
             title: "Parcela",
             dataIndex: "portion",
             key: "portion",
+            cellFontSize: '8px'
         },
         {
             title: "Amortização",
@@ -69,52 +84,90 @@ export default function Home() {
         },
     ];
 
-    const imageStyle = {
-        width: '120px',
-        height: '120px',
-    }
-
     const content = () => {
         // @ts-ignore
+        // @ts-ignore
         return (
-            <Layout style={{ backgroundColor: '#fff', padding: '0 20px 10px 20px' }}>
+            <Layout style={{ backgroundColor: '#fff', padding: '0 10px 10px 10px' }}>
                 <Layout style={{ backgroundColor: '#fff', height: '100%', display: 'flex', alignItems: 'center' }}>
                     <Image
                         src={Logo}
-                        style={imageStyle}
+                        style={{
+                            width: '120px',
+                            height: '120px',
+                        }}
+                        sizes="33vw"
                         alt="Picture of the author"
                     />
+                    <Typography.Title level={5} style={{ color: '#000' }}>
+                        Resumo da simulação
+                    </Typography.Title>
                 </Layout>
                 <Row>
-                    <Col span={6}>col-6</Col>
-                    <Col span={6}>col-6</Col>
-                    <Col span={6}>col-6</Col>
-                    <Col span={6}>col-6</Col>
+                    <Col span={3}>
+                        <Image
+                            src={dataJson.data[0].bank_image}
+                            style={{
+                                width: '75px',
+                                height: '75px',
+                            }}
+                            width={75}
+                            height={75}
+                            sizes="33vw"
+                            alt="Picture of the author"
+                        />
+                        <Typography.Title level={5} style={{ color: '#000' }}>
+                            {dataJson.data[0].bank_name}
+                        </Typography.Title>
+                    </Col>
+                    <Col span={5}>
+                        <Typography.Title level={5} style={{ color: '#000' }}>
+                            Relacionamento
+                        </Typography.Title>
+                    </Col>
+                    <Col span={4}>
+                        <Typography.Title level={5} style={{ color: '#000' }}>
+                            Taxa Efetiva
+                        </Typography.Title>
+                    </Col>
+                    <Col span={3}>
+                        <Typography.Title level={5} style={{ color: '#000' }}>
+                            CESH
+                        </Typography.Title>
+                    </Col>
+                    <Col span={5}>
+                        <Typography.Title level={5} style={{ color: '#000' }}>
+                            Total das prestações
+                        </Typography.Title>
+                    </Col>
+                    <Col span={4}>
+                        <Typography.Title level={5} style={{ color: '#000' }}>
+                            Primeira parcela
+                        </Typography.Title>
+                    </Col>
                 </Row>
-                <Image
-                    src={dataJson.data[0].bank_image}
-                    style={imageStyle}
-                    width={75}
-                    height={75}
-                    alt="Picture of the author"
-                />
-                <Typography.Title level={5} style={{ color: '#000' }}>
-                    {dataJson.data[0].bank_name}
-                </Typography.Title>
                 <Table
                     dataSource={data}
                     columns={columns}
                     bordered
+                    size='small'
                     pagination={false}
                 />
             </Layout>
         );
     };
     const handlePrint = async () => {
+        const opt = {
+            // margin:       1,
+            filename:     'myfile.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
         // @ts-ignore
         const html2pdf = (await import("html2pdf.js/dist/html2pdf.min.js")).default;
         const printContent = ReactDOMServer.renderToString(content());
-        html2pdf().set().from(printContent).save();
+        html2pdf().set(opt).from(printContent).save();
     };
 
     return (
