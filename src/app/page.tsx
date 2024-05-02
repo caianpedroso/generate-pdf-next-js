@@ -88,7 +88,7 @@ export default function Home() {
         // @ts-ignore
         // @ts-ignore
         return (
-            <Layout style={{ backgroundColor: '#fff', padding: '0 10px 10px 10px' }}>
+            <Layout style={{ backgroundColor: '#000', padding: '0 10px 10px 10px' }}>
                 <Layout style={{ backgroundColor: '#fff', height: '100%', display: 'flex', alignItems: 'center' }}>
                     <Image
                         src={Logo}
@@ -162,7 +162,7 @@ export default function Home() {
             filename:     'myfile.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'in', format: 'letter', orientation: 'portrait' }
+            jsPDF:        { unit: 'in', orientation: 'portrait', format: 'a4' }
         };
         // @ts-ignore
         const html2pdf = (await import("html2pdf.js/dist/html2pdf.min.js")).default;
