@@ -86,7 +86,6 @@ export default function Home() {
 
     const content = () => {
         // @ts-ignore
-        // @ts-ignore
         return (
             <Layout style={{ backgroundColor: '#000', padding: '0 10px 10px 10px' }}>
                 <Layout style={{ backgroundColor: '#fff', height: '100%', display: 'flex', alignItems: 'center' }}>
@@ -158,7 +157,6 @@ export default function Home() {
     };
     const handlePrint = async () => {
         const opt = {
-            // margin:       1,
             filename:     'myfile.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { scale: 2 },
