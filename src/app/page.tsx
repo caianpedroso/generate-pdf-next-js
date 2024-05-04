@@ -2,12 +2,9 @@
 import Head from "next/head";
 import Image from "next/image";
 import ReactDOMServer from "react-dom/server";
-import { Inter } from "@next/font/google";
 import { Button, Table, Typography, Layout, Col, Row } from "antd";
-const inter = Inter({ subsets: ["latin"] });
 import { Wrapper } from "./app.style";
 import Logo from "./logo.png";
-import { render } from "react-dom";
 import { dataJson } from "./dataJson";
 
 // @ts-ignore
