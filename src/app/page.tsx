@@ -16,8 +16,6 @@ export const moneyMask = (value: string) => {
         parseFloat(value) / 100
     )
 
-    // console.log(result)
-
     return 'R$ ' + result
 }
 
