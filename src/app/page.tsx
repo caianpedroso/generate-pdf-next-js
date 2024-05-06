@@ -7,8 +7,7 @@ import { Wrapper } from "./app.style";
 import Logo from "./logo.png";
 import { dataJson } from "./dataJson";
 
-// @ts-ignore
-export const moneyMask = (value: string) => {
+const moneyMask = (value: string): string => {
     value = value.replace('.', '').replace(',', '').replace(/\D/g, '')
 
     const options = { minimumFractionDigits: 2 }
@@ -79,7 +78,6 @@ export default function Home() {
     ];
 
     const content = () => {
-        // @ts-ignore
         return (
             <Layout style={{ backgroundColor: '#000', padding: '0 10px 10px 10px' }}>
                 <Layout style={{ backgroundColor: '#fff', height: '100%', display: 'flex', alignItems: 'center' }}>
@@ -171,14 +169,12 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Wrapper>
-                {/* render UI */}
-                <div className={"btn__container"}>
-                    <Button type="primary" onClick={() => handlePrint()}>
-                        Print
-                    </Button>
-                </div>
-                {content()}
+              {/* render UI */}
+              <Button type="primary" onClick={() => handlePrint()}>
+                Print
+              </Button>
+              {content()}
             </Wrapper>
         </>
     );
-}
+};
