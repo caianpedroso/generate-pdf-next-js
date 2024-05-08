@@ -154,7 +154,7 @@ export default function Home() {
             html2canvas:  { scale: 2 },
             jsPDF:        { unit: 'in', orientation: 'portrait', format: 'a4' }
         };
-        // @ts-ignore
+
         const html2pdf = (await import("html2pdf.js/dist/html2pdf.min.js")).default;
         const printContent = ReactDOMServer.renderToString(content());
         html2pdf().set(opt).from(printContent).save();
