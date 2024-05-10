@@ -30,8 +30,8 @@ export default function Home() {
             tac: moneyMask(item.tac.toString()),
             parcel: moneyMask(item.parcel.toString()),
             remaining_balance: moneyMask(item.remaining_balance.toString()),
-        })
-    })
+        });
+    });
 
     const columns = [
         {
