@@ -10,7 +10,7 @@ import { dataJson } from "./dataJson";
 const moneyMask = (value: string): string => {
     value = value.replace('.', '').replace(',', '').replace(/\D/g, '')
 
-    const options = { minimumFractionDigits: 2 }
+    const options = { minimumFractionDigits: 2 };
     const result = new Intl.NumberFormat('pt-BR', options).format(
         parseFloat(value) / 100
     );
