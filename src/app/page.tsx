@@ -29,7 +29,7 @@ export default function Home() {
             dfi: moneyMask(item.dfi.toString()),
             tac: moneyMask(item.tac.toString()),
             parcel: moneyMask(item.parcel.toString()),
-            remaining_balance: moneyMask(item.remaining_balance.toString()),
+            remaining_balance: item.remaining_balance.toString(),
         });
     });
 
