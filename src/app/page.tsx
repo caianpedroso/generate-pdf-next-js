@@ -26,7 +26,7 @@ export default function Home() {
             amortization: moneyMask(item.amortization.toString()),
             fee: moneyMask(item.fee.toString()),
             mip: moneyMask(item.mip.toString()),
-            dfi: moneyMask(item.dfi.toString()),
+            dfi: item.dfi.toString(),
             tac: item.tac.toString(),
             parcel: item.parcel.toString(),
             remaining_balance: item.remaining_balance.toString(),
