@@ -24,7 +24,7 @@ export default function Home() {
             key: item.number,
             portion: item.number,
             amortization: moneyMask(item.amortization.toString()),
-            fee: moneyMask(item.fee.toString()),
+            fee: item.fee.toString(),
             mip: item.mip.toString(),
             dfi: item.dfi.toString(),
             tac: item.tac.toString(),
