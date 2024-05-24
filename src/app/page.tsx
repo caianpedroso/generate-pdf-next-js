@@ -7,16 +7,6 @@ import { Wrapper } from "./app.style";
 import Logo from "./logo.png";
 import { dataJson } from "./dataJson";
 
-const moneyMask = (value: string): string => {
-    value = value.replace('.', '').replace(',', '').replace(/\D/g, '')
-
-    const options = { minimumFractionDigits: 2 };
-    const result = new Intl.NumberFormat('pt-BR', options).format(
-        parseFloat(value) / 100
-    );
-    return 'R$ ' + result;
-};
-
 export default function Home() {
 
     const data = dataJson.data[0].parcels.map(item => {
