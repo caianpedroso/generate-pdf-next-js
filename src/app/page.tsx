@@ -70,7 +70,7 @@ export default function Home() {
     const content = () => {
         return (
             <Layout style={{ backgroundColor: '#000', padding: '0 10px 10px 10px' }}>
-                <Layout style={{ backgroundColor: '#fff', height: '100%', display: 'flex', alignItems: 'center' }}>
+                <Layout style={{ backgroundColor: '#ffffff', height: '100%', display: 'flex', alignItems: 'center' }}>
                     <Image
                         src={Logo}
                         style={{
