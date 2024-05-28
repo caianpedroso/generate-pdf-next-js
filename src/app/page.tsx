@@ -74,8 +74,8 @@ export default function Home() {
                     <Image
                         src={Logo}
                         style={{
-                            width: '120px',
-                            height: '120px',
+                            width: '100px',
+                            height: '100px',
                         }}
                         sizes="33vw"
                         alt="Picture of the author"
