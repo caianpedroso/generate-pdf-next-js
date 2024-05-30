@@ -78,7 +78,7 @@ export default function Home() {
                             height: '100px',
                         }}
                         sizes="33vw"
-                        alt="Picture of the author"
+                        alt="Picture"
                     />
                     <Typography.Title level={5} style={{ color: '#000' }}>
                         Resumo da simulação
