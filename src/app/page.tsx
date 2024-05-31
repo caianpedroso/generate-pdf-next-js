@@ -95,7 +95,7 @@ export default function Home() {
                             width={75}
                             height={75}
                             sizes="33vw"
-                            alt="Picture of the author"
+                            alt="Author"
                         />
                         <Typography.Title level={5} style={{ color: '#000' }}>
                             {dataJson.data[0].bank_name}
