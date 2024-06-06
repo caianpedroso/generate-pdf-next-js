@@ -160,7 +160,6 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Wrapper>
-              {/* render UI */}
               <Button type="primary" onClick={() => handlePrint()}>
                 Print
               </Button>
