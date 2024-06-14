@@ -139,7 +139,7 @@ export default function Home() {
     };
     const handlePrint = async () => {
         const opt = {
-            filename:     'myfile.pdf',
+            filename:     'parcelas.pdf',
             image:        { type: 'jpeg', quality: 0.98 },
             html2canvas:  { scale: 2 },
             jsPDF:        { unit: 'in', orientation: 'portrait', format: 'a4' }
