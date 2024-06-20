@@ -75,7 +75,7 @@ export default function Home() {
                         src={Logo}
                         style={{
                             width: '200px',
-                            height: '2s00px',
+                            height: '200px',
                         }}
                         sizes="33vw"
                         alt="Picture"
